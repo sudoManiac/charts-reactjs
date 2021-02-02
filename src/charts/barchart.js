@@ -1,6 +1,6 @@
 import React from 'react' ;
 import {Bar, BarChart, XAxis, YAxis, CartesianGrid ,Tooltip} from 'recharts' ;
-import {RQD_API_ENDPOINT} from '../constants';
+import { MTL_API_ENDPOINT } from '../constants';
 
 class BarChartComponent extends React.Component {
 
@@ -14,7 +14,7 @@ class BarChartComponent extends React.Component {
 
  // callback function running every 10 seconds
   fetchData = () => {
-    fetch(RQD_API_ENDPOINT)
+    fetch(MTL_API_ENDPOINT)
     .then((response)=> response.json())
     .then(fetchedData => {
       console.log(fetchedData)

@@ -4,7 +4,7 @@ import React, { useState , useEffect} from 'react';
 
 import CountDownTimer from './charts/timer'
 import LineChartComponent from './charts/linechart'
-import BarChartComponent from './charts/barchart'
+// import BarChartComponent from './charts/barchart'
 import { MTL_API_ENDPOINT } from './constants';
 
 // TODO: ADD A refresh when data updates to chart using setState() or updateState()
@@ -40,9 +40,9 @@ function App() {
           <LineChartComponent  data ={apiData}/>
         </div>
       <CountDownTimer />
-      <div className="bar-chart">
+      {/* <div className="bar-chart">
         <BarChartComponent data ={apiData}/>
-      </div>
+      </div> */}
       
       </header>
     </div>
