@@ -1,30 +1,11 @@
 import React from 'react'
 import {LineChart ,Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts'
-import { MTL_API_ENDPOINT , LINE_KEY, X_AXIS_KEY, Y_AXIS_KEY} from '../constants';
+import { MTL_API_ENDPOINT , LINE_KEY, X_AXIS_KEY, Y_AXIS_KEY, API_RESPONSE_DATA_KEY ,REFRESH_RATE} from '../constants';
 
 class LineChartComponent extends React.Component{
 
   state = {
-    apiData: [
-      {
-          "id": "16",
-          "month": "May 2005",
-          "percent": 7,
-          "update_time": "2021-02-02 10:07:00.590097428 +0000 UTC m=+427.925701055"
-      },
-      {
-          "id": "193",
-          "month": "Feb 2020",
-          "percent": 51,
-          "update_time": "2021-02-02 10:07:11.747889263 +0000 UTC m=+439.083492891"
-      },
-      {
-          "id": "106",
-          "month": "Nov 2012",
-          "percent": 87,
-          "update_time": "2021-02-02 10:07:11.751973705 +0000 UTC m=+439.087577331"
-      },
-    ]
+    apiData : null
   }
 
  // callback function running every 10 seconds
@@ -32,17 +13,22 @@ class LineChartComponent extends React.Component{
     fetch(MTL_API_ENDPOINT)
     .then((response)=> response.json())
     .then(fetchedData => {
-      console.log(fetchedData['fetched_data'])
-      this.setState({apiData: fetchedData['fetched_data']})
+      console.log(fetchedData[API_RESPONSE_DATA_KEY])
+      this.setState({apiData: fetchedData[API_RESPONSE_DATA_KEY]})
     });
   }
   
-  componentDidMount() {
+  async componentDidMount() {
     // need to make the initial call to getData() to populate
     // data right away
+    const response = await fetch(MTL_API_ENDPOINT);
+    const jsonData = await response.json();
+    this.setState({ apiData: jsonData[API_RESPONSE_DATA_KEY]})
+
     // Now we need to make it run at a specified interval
-    setInterval(this.fetchData , 300000); // runs every 60 seconds.
+    setInterval(this.fetchData , REFRESH_RATE ); // runs every 60 seconds.
   }
+
 
   componentWillUnmount() {
     clearInterval(this.interval );
@@ -50,7 +36,7 @@ class LineChartComponent extends React.Component{
 
 
   render(){
-
+    
     return (
       <LineChart 
         width={1500} 

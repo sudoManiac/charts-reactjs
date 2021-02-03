@@ -5,7 +5,7 @@ import React, { useState , useEffect} from 'react';
 import CountDownTimer from './charts/timer'
 import LineChartComponent from './charts/linechart'
 // import BarChartComponent from './charts/barchart'
-import { MTL_API_ENDPOINT } from './constants';
+import { API_RESPONSE_DATA_KEY, MTL_API_ENDPOINT } from './constants';
 
 // TODO: ADD A refresh when data updates to chart using setState() or updateState()
 
@@ -25,10 +25,10 @@ function App() {
   const apiWithFetch = async () => {
     const response = await fetch(apiURL);
     const jsonData = await response.json();
-    setData(jsonData)
+    setData(jsonData[API_RESPONSE_DATA_KEY])
 }; 
 
-// console.log(apiData);
+console.log(apiData);
 
 
   return (
