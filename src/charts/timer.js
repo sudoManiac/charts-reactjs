@@ -26,7 +26,7 @@ class CountDownTimer extends React.Component{
     render(){
         return (
             <div>
-                <h4 className="countdown-timer">Refreshes in {this.state.seconds}</h4>
+                <h4 className="countdown-timer">Refreshes in {this.state.seconds} seconds</h4>
             </div>
         )
     }

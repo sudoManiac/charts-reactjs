@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useState , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 import CountDownTimer from './charts/timer'
 import LineChartComponent from './charts/linechart'
@@ -10,41 +10,33 @@ import { API_RESPONSE_DATA_KEY, MTL_API_ENDPOINT } from './constants';
 // TODO: ADD A refresh when data updates to chart using setState() or updateState()
 
 
-const apiURL = MTL_API_ENDPOINT;
-
-
 function App() {
-
-  const [apiData, setData] = useState({});
-
-  useEffect(() => {
-    apiWithFetch();
-  }, []);
-  
-
-  const apiWithFetch = async () => {
-    const response = await fetch(apiURL);
-    const jsonData = await response.json();
-    setData(jsonData[API_RESPONSE_DATA_KEY])
-}; 
-
-console.log(apiData);
-
-
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-
-        <div className="line-chart">
-          <LineChartComponent  data ={apiData}/>
+        Hosted on AWS
+        </header>
+      <body>
+      
+        <div className="timer">
+          <CountDownTimer />
         </div>
-      <CountDownTimer />
+        <div className="line-chart">
+          <LineChartComponent />
+        </div>
+     
+      </body>
+
+      <footer className="App-footer">
+        <div className="footer-text">
+        Made In React JS
+        </div>
+        <img src={logo} className="App-logo" alt="logo" />
+      </footer>
       {/* <div className="bar-chart">
         <BarChartComponent data ={apiData}/>
       </div> */}
-      
-      </header>
+
     </div>
   );
 }

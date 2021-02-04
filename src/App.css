@@ -1,10 +1,12 @@
 .App {
+  background-color: #e5c8e9;
   text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 5vmin;
   pointer-events: none;
+  margin: 5px 10px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,19 +15,41 @@
   }
 }
 
+.footer-text{
+  display: inline;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 2vmin;
+}
+
+.App-footer{
+  padding: 20px 20px;
+}
+
 .App-header {
-  background-color: #404b5f;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color:black;
 }
 
+.line-chart{
+  background-color:rgba(28, 29, 31, 0.959) ;
+  margin: 30px 40px;
+  color: white;
+  border: 8px solid rgb(154, 245, 112);
+  padding: 40px 15px;
+  border-radius: 20px;
+}
+
+.timer{
+  font-size: 20px;
+}
 .App-link {
-  color: #61dafb;
+  color: #a3b2b6;
 }
 
 @keyframes App-logo-spin {

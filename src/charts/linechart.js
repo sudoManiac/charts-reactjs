@@ -23,6 +23,7 @@ class LineChartComponent extends React.Component{
     // data right away
     const response = await fetch(MTL_API_ENDPOINT);
     const jsonData = await response.json();
+    console.log(jsonData[API_RESPONSE_DATA_KEY])
     this.setState({ apiData: jsonData[API_RESPONSE_DATA_KEY]})
 
     // Now we need to make it run at a specified interval
@@ -39,10 +40,10 @@ class LineChartComponent extends React.Component{
     
     return (
       <LineChart 
-        width={1500} 
+        width={2000} 
         height={600} 
         data={this.state.apiData}
-        
+
         margin={
            {  
               top: 25,
@@ -52,7 +53,7 @@ class LineChartComponent extends React.Component{
             }
           }>
           <CartesianGrid stroke="#eee" fontFamily="sans-serif" strokeDasharray="5 5" />
-          <XAxis tick={false} stroke="#ffff44" dataKey={X_AXIS_KEY} fontFamily="sans-serif"  />
+          <XAxis tick={{fontSize: 15}} angle={-45} stroke="#ffff44" dataKey={X_AXIS_KEY} fontFamily='sans-serif'   />
           <YAxis stroke="#ffff44" dataKey={Y_AXIS_KEY}/>
           <Legend />
           <Line 
