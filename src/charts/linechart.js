@@ -39,9 +39,11 @@ class LineChartComponent extends React.Component{
   render(){
     
     return (
+      
       <LineChart 
-        width={2000} 
+        width={1800} 
         height={600} 
+        align="center"
         data={this.state.apiData}
 
         margin={

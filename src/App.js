@@ -24,12 +24,14 @@ function App() {
         <div className="line-chart">
           <LineChartComponent />
         </div>
-     
+      <div className="chart-info">
+          Google Search Trend For "CupCake"
+        </div>
       </body>
 
       <footer className="App-footer">
         <div className="footer-text">
-        Made In React JS
+          Made In React JS
         </div>
         <img src={logo} className="App-logo" alt="logo" />
       </footer>
