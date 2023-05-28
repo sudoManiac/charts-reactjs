@@ -1,0 +1,17 @@
+name: Welcome Contributor
+
+on: 
+  pull_request_target:
+    types: [opened]
+
+jobs:
+  welcome: 
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/first-interaction@1.0.0
+        with: 
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          pr-message: |-
+            Congratualtions! we have received your pull request one of our moderators will get in review it soon.
+    
